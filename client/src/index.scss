@@ -13,7 +13,6 @@ $secondary-800: #00b5e0;
 $tertiary-50: #fff8e6;
 $tertiary-100: #fff1cd;
 $quaternary-500: #fb8500;
-
 html,
 body,
 #root,
@@ -136,11 +135,11 @@ body,
 }
 
 .icon-chat {
-  width: 22px !important;
+  width: 30px !important;
   height: 22px !important;
 }
 
-.message-form-preview {
+.attachment-preview {
   position: relative;
 }
 
@@ -154,7 +153,7 @@ body,
   cursor: pointer;
 }
 
-.message-form-container {
+.msg-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,20 +173,20 @@ body,
   width: 80%;
 }
 
-.message-form-preview-image {
-  width: 40px;
-  height: 40px;
+.attachment-image {
+  width: 50px;
+  height: 50px;
 }
 
-.message-form-input-container {
+.form-input-container {
   flex-basis: 100%;
   position: relative;
   top: -10px;
 }
 
-.message-form-input,
-.message-form-input:focus,
-.message-form-input:active {
+.form-input,
+.form-input:focus,
+.form-input:active {
   all: unset;
   position: absolute;
   top: 0;
@@ -208,25 +207,25 @@ body,
   z-index: 1;
 }
 
-.message-form-icon-airplane {
+.icon-airplane {
   color: $secondary-500 !important;
   width: 25px !important;
   height: 25px !important;
 }
 
-.message-form-icon-clip:hover,
-.message-form-icon-airplane:hover {
+.paper-clip-icon:hover,
+.icon-airplane:hover {
   color: $secondary-800 !important;
   cursor: pointer;
 }
 
-.message-form-icon-clip {
+.paper-clip-icon {
   color: $primary-400 !important;
   width: 21px !important;
   height: 21px !important;
 }
 
-.message-form-icons {
+.form-icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -325,7 +324,7 @@ body,
   background-color: $primary-700 !important;
 }
 
-.chat-header {
+.chat-custom-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
