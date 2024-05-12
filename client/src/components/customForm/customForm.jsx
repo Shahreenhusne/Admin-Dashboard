@@ -4,9 +4,31 @@ import Dropzone from "react-dropzone";
 import { useState } from 'react';
 
 const CustomForm = ({ props, activeChat }) => {
+  console.log(activeChat)
   const [msg, setMsg] = useState("");
   const [attachment, setAttachment] = useState("");
   const [preview, setPreview] = useState("");
+
+  const handleSubmit = async () => {
+    console.log(attachment);
+    const date = new Date()
+      .toISOString()
+      .replace("T", " ")
+      .replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`);
+    const file_attached = attachment
+      ? [{ blob: attachment, file: attachment.name }]
+      : [];
+    const form = {
+      attachment: file_attached,
+      created: date,
+      sender_username: props.username,
+      text: msg,
+      activeChatId: activeChat.id,
+    };
+    props.onSubmit(form);
+    setMsg("")
+    setAttachment("")
+  };
 
   return (
     <>
@@ -48,24 +70,22 @@ const CustomForm = ({ props, activeChat }) => {
                 setPreview(URL.createObjectURL(acceptedFiles[0]));
               }}
             >
-              {({ getRootProps, getInputProps, open}) => (
+              {({ getRootProps, getInputProps, open }) => (
                 <section>
                   <div {...getRootProps()}>
                     <input {...getInputProps()} />
-                  <PaperClipIcon className='paper-clip-icon' onClick={open} />
-                                      
+                    <PaperClipIcon className="paper-clip-icon" onClick={open} />
                   </div>
                 </section>
               )}
             </Dropzone>
-            <hr className='vertical-line'></hr>
+            <hr className="vertical-line"></hr>
             <PaperAirplaneIcon
-                          className='icon-airplane'
-                          onClick={() =>
-                              setPreview("")
-                              //   handlesubmit()}
-                          }
-                      />
+              className="icon-airplane"
+              onClick={() => {
+                  setPreview(""),
+                  handleSubmit()
+                }}/>
           </div>
         </div>
       </div>

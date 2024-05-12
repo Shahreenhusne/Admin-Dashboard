@@ -24,7 +24,7 @@ const ChatApp = () => {
         <MultiChatWindow {...chatProps}
           style={{ height: "100vh" }}
           renderChatHeader={(chat) => <Header chat={chat} />}
-          renderMessageForm = {(props) => {
+          renderMessageForm={(props) => {
             return (
               <MessageForm props={props} activeChat={chatProps.chat}/>
             )
